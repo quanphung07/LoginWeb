@@ -1,0 +1,22 @@
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+
+@if(Model.Any())
+{
+    foreach(var item in Model)
+    {
+        <div class="card" style="margin-top: 20px;">
+            <div class="card-header">Role Id:@item.Id</div>
+            <div class="card-body">Role Name:@item.Name</div>
+            <div class="card-footer">
+                <a asp-action="Edit" asp-controller="Administration" asp-route-RoleId="@item.Id">Edit</a>
+                <a asp-action="Delete" asp-controller="Administration" asp-route-RoleId="@item.Id">Delete</a>
+            </div>    
+        </div>
+    }
+}else
+{
+    <h2>You don't have any role.Press below button to create row</h2>
+    <button asp-action="Create" asp-controller="Administration">Create Roles</button>
+
+}    

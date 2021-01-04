@@ -1,0 +1,38 @@
+@model IEnumerable<AppUser>
+<h1>All Users</h1>
+
+@if (Model.Any())
+{
+    <a class="btn btn-primary" asp-controller="Account" asp-action="Register">Add new User</a>
+    foreach (var user in Model)
+    {
+        <div class="card">
+    <div class="card-header">
+        User Id=@user.Id
+    </div>
+    <div class="card-body">
+        Username=@user.UserName
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-primary" asp-controller="Account" asp-action="Edit">Edit</a>
+        <a class="btn btn-primary" asp-controller="Account" asp-action="Delete">Delete</a>
+
+    </div>
+
+</div>
+    }
+}
+else
+{
+    <div class="card">
+    <div class="card-header">
+        No user created
+    </div>
+    <div class="card-body">
+        Use below button to create new user
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-primary" asp-controller="Account" asp-action="Register">Add new User</a>
+    </div>
+</div>
+}

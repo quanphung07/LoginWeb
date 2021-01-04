@@ -1,0 +1,43 @@
+@model LogInWeb.Models.EditRoleModel
+
+<h2>Create a role</h2>
+<form asp-action="Edit" asp-controller="Administration" method="POST">
+    <div class="form-group">
+        <label asp-for="RoleId"></label>
+        <input asp-for="RoleId" type="text" readonly />
+    </div>
+   <div class="form-group">
+       <label asp-for="RoleName">Role Name</label>
+       <input type="text" asp-for="RoleName">
+   </div>
+   <div class="form-group">
+       <button type="submit">Update</button>
+           <a asp-action="ListRoles" asp-controller="Administration" class="btn" >Cancel</a>
+
+   </div>
+    
+</form>
+<div class="card">
+    <div class="card-header">
+        <h3>User in this role</h3>
+    </div>
+    <div class="card-body">
+       @if(Model.Users.Any())
+       {
+            @foreach (var item in @Model.Users)
+            {
+                <h5 class="card-title">@item</h5>
+            }
+       }
+       else
+       {
+           <h5>There isn't any user with this Role</h5>
+       }
+    </div>
+    <div class="card-header">
+        <a asp-action="EditUserInRole" asp-controller="Administration"
+         asp-route-roleId="@Model.RoleId" class="btn btn-primary">
+                Add or remove users
+        </a>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+@model LogInWeb.Models.RoleModel
+
+<h2>Create a role</h2>
+<form action="/Administration/Create" method="post">
+    <input type="text" asp-for="RoleName"/>
+    <button type="submit">Create</button>
+</form>

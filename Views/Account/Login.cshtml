@@ -1,0 +1,27 @@
+@model LogInWeb.Models.LoginModel
+
+<form method="POST">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" type="text"/>
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+       <label asp-for="Email"></label>
+        <input asp-for="Email" type="text"/>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="text"/>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RememberMe"></label>
+        <input type="checkbox"/>
+    </div>
+    <div class="form-group">
+        <button type="submit">Login</button>
+    </div>
+</form>
